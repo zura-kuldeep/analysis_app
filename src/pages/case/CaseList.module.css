@@ -1,0 +1,78 @@
+.main-div{
+  margin-top: 100px;
+}
+
+.parent-div{
+  display:flex;
+  /* margin-top: 20px; */
+}
+.child-div{
+  margin:0 20px;
+}
+
+.register-div{
+  margin-top: 30px;
+  
+}
+a{
+  color:black;
+  text-decoration: none;
+}
+
+.case-title{
+  margin-left: 20px;
+}
+.case-details{
+  margin-left:25px;
+}
+.addbutton {
+    border-radius: 50px;
+    background-color: rgb(119, 228, 119);
+    border-color: rgb(119, 228, 119);
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 220px;
+  }
+
+.search-bar-div{
+  margin-left:50px;
+  margin-bottom:10px;
+
+}
+.list-div{
+    margin-left:50px;
+  }
+
+.list-div ul{
+    width:900px;
+    /* top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px; */
+    /* max-height: 100px; */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    margin: 0;
+    padding: 0;
+    border: transparent;
+    font-size: 16px;
+   -webkit-overflow-scrolling: touch;
+  }
+.list-div ul::-webkit-scrollbar {
+      display: none;
+  }
+  
+.list-div  li {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: .125em;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+  }
+.list-div  li:hover {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #cacaca;
+  }

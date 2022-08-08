@@ -1,0 +1,15 @@
+.case-details {
+  margin-top: 30px;
+  margin-left: 40px;
+  }
+.case-details div{
+  margin:"5px o"
+}
+
+p{
+font-size: 20px;
+}
+
+h5,p{
+  display: inline;
+}

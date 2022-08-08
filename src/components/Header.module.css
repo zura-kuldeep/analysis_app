@@ -1,0 +1,25 @@
+.top-bar{
+    height: 60px;
+    width:100%;
+    top:0;
+    z-index: 1000;
+    position: fixed;
+    background-color: black;
+    color:white;
+    align-items: center; padding: 10px;
+    display: flex;
+}
+.link{
+   
+    margin-left:15px;
+    color:white;
+    text-decoration: none;
+    
+}
+.link:hover{
+    color:yellow
+}
+
+.head-logo{
+  height:auto;
+}
