@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 
-import classes from "./UploadVideo.module.css"
+
 import { Button,Input } from "reactstrap";
 
 
