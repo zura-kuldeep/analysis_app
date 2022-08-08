@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { Button } from "reactstrap";
+
+import classes from "./UploadVideo.module.css"
+import { Button,Input } from "reactstrap";
+
+
 const UploadVideo = (props) => {
   const [selected, setSelected] = useState(false);
   const [file, setFile] = useState();
@@ -34,14 +38,30 @@ const UploadVideo = (props) => {
   };
   return (
     <div style={{ margin: "20px 0 0 200px" }}>
-      {!selected && <p>Select a Video to Upload</p>}
       <div>
-        <input type="file" onChange={fileSelected} accept="video/*" />
+      <form onSubmit={videoUploadHandler} style={{display:"flex"}}>
+            <Input
+                style={{width:"500px"}}
+                id="exampleFile"
+                name="file"
+                type="file"
+                onChange={fileSelected}
+                accept="video/*"
+            />
+             <div style={{marginLeft:"10px"}}>
+                <Button onClick={cancelUpload} style={{ marginRight: "5px" }} outline>
+                    cancel
+                </Button>
+                 <Button type="submit" outline>upload</Button>
+            </div>
+            </form>
+
+        {/* <input type="file" onChange={fileSelected} accept="video/*" /> */}
       </div>
       <div style={{ marginTop: "2px" }}>
         {selected && <ReactPlayer url={preview} controls />}
       </div>
-      <div style={{ marginTop: "5px" }}>
+      {/* <div style={{ marginTop: "5px" }}>
         <Button style={{ marginRight: "5px" }} outline onClick={cancelUpload}>
           cancel
         </Button>
@@ -50,7 +70,7 @@ const UploadVideo = (props) => {
             upload
           </Button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
