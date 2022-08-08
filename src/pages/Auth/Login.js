@@ -27,7 +27,7 @@ const Login = ({ setToken }) => {
       username,
       password,
     });
-    setToken("232");
+    setToken(token);
   };
 
   return (
