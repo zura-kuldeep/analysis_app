@@ -40,9 +40,12 @@ const ViewImages = (props) => {
           style={{
             textDecoration: "underline",
             textAlign: "center",
+            fontSize:"24px",
+            marginTop:"5px",
+          
           }}
         >
-          {props.cases[0].caseName}
+          {props.cases[0].caseName.toUpperCase()}
         </h3>
         <h5
           style={{
@@ -54,7 +57,7 @@ const ViewImages = (props) => {
         {!uploadImg && disableUpload && (
           <Button
             onClick={uploadHandler}
-            style={{ float: "right", marginRight: "30px", marginTop: "5px" }}
+            style={{ float: "right", marginRight: "0px", marginTop: "-35px" }}
             outline
           >
             Upload Images
