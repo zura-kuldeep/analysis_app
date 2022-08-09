@@ -25,6 +25,26 @@ canvas{
     margin-top: 100px;
     display:flex;
   }
+.saves-div{
+    margin-bottom: 2px;
+    position: relative;
+}
+.proc-close-btn{
+    border-radius: 50%;
+    border:none;
+    position: absolute;
+    height:30px;
+    width:30px;
+    font-size: 10px;
+    cursor: pointer;
+    top:0;
+    right:0;
+    color: black;
+    background-color: transparent;
+} 
+.proc-close-btn:hover{
+  background-color: grey;
+} 
 
 .filter-buttons{
   position: absolute;
@@ -47,20 +67,19 @@ canvas{
  cursor: -moz-grab;
  cursor: -webkit-grab;
 }
-  
-  .column {
+.column {
       float: left;
       width: 20%;
       /* padding: 10px; */
     }
     
-    /* Clear floats after the columns */
-    .row:after {
+ /* Clear floats after the columns */
+.row:after {
       content: "";
       display: table;
       clear: both;
     }
   
-    input{
+input{
       width:55px;
     }
