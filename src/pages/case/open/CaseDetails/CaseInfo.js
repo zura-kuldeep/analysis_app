@@ -13,39 +13,103 @@ const CaseInfo = (props) => {
             style={{
               textDecoration: "underline",
               textAlign: "center",
+              fontSize: "24px",
+              marginTop: "5px",
             }}
           >
-            Case Information
+            CASE INFORMATION
           </h3>
         </div>
         <div style={{ float: "right", marginRight: "100px" }}>
           {/* edit option */}
         </div>
         <div className={classes["case-details"]}>
-            <div>
-              <h5> Case ID :</h5> <p> {cases[0].caseID}</p>
-            </div>
-            <div>
-              <h5> Case Name :</h5> <p>{cases[0].caseName}</p>
-            </div>
-            <div>
-              <h5> Case Description :</h5> <p>{cases[0].caseDescription}</p>
-            </div>
-            <div>
-              <h5>Submitting Officer ID :</h5> <p>{cases[0].officerID}</p>
-            </div>
-            <div>
-              <h5>Submitting Officer :</h5>{" "}
-              <p>{cases[0].submittingOfficerName}</p>
-            </div>
-            <div>
-              <h5>Date :</h5> <p> {cases[0].date}</p>
-            </div>
-            <div>
-              <h5>Location : </h5> <p>{cases[0].location}</p>
-            </div>
-          </div>
+          <table>
+            <tbody>
+            <tr>
+              <td>
+                <h5> Case ID </h5>
+              </td>
+              <td>
+                <b> : </b>
+              </td>
+              <td>
+                <p>{cases[0].caseID}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Case Name </h5>
+              </td>
+              <td>
+                <b> : </b>
+              </td>
+              <td>
+                <p>{cases[0].caseName.toLowerCase()}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5> Case Description </h5>
+              </td>
+              <td>
+                <b> : </b>
+              </td>
+              <td>
+                <p>{cases[0].caseDescription.toLowerCase()}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Officer ID </h5>
+              </td>
+              <td>
+                <b> : </b>
+              </td>
+              <td>
+                <p>{cases[0].officerID}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Officer Name </h5>
+              </td>
+              <td>
+                <b > : </b>
+              </td>
+              <td>
+                <p>{cases[0].submittingOfficerName.toLowerCase()}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Date </h5>
+              </td>
+              <td>
+                <b > : </b>
+              </td>
+              <td>
+                <p>{cases[0].date}</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <h5>Location </h5>
+              </td>
+              <td>
+                <b > : </b>
+              </td>
+              <td>
+                <p>{cases[0].location.toLowerCase()}</p>
+              </td>
+            </tr>
+
+            </tbody>
+
+          </table>
         </div>
+      </div>
     </CardRight>
   );
 };
