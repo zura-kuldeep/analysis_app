@@ -212,8 +212,25 @@ const ProcessImage = () => {
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const detectionInput = (e) => {
-        setImageForDetect(e.target.files[0]);
+        setImageForDetect(URL.createObjectURL(e.target.files[0]));
         // console.log(e.target.files[0]);
+    };
+    const matching = () => {
+        let cv = window.cv;
+        let src = cv.imread("imagesrc");
+        let templ = cv.imread("miniImg"); // image source of other image
+        let dst = new cv.Mat();
+        let mask = new cv.Mat();
+        cv.matchTemplate(src, templ, dst, cv.TM_CCOEFF, mask);
+        let result = cv.minMaxLoc(dst, mask);
+        let maxPoint = result.maxLoc;
+        let color = new cv.Scalar(255, 0, 0, 255);
+        let point = new cv.Point(maxPoint.x + templ.cols, maxPoint.y + templ.rows);
+        cv.rectangle(src, maxPoint, point, color, 2, cv.LINE_8, 0);
+        cv.imshow("outputsrc", src);
+        src.delete();
+        dst.delete();
+        mask.delete();
     };
     const onLoaded = (cv) => {
         console.log("opencv loaded, cv");
@@ -250,7 +267,8 @@ const ProcessImage = () => {
     return (
         <OpenCvProvider onLoad={onLoaded} openCvPath="/opencv/opencv.js">
             <div className={classes["maindiv"]}>
-                <img id="imagesrc" src={imageforEdit} style={{ display: "none" }} />
+                <img id="imagesrc" src={imageforEdit} alt=" " style={{ display: "none" }} />
+                <img id="miniImg" src={imageForDetect} alt=" " style={{display:"none"}}/>
 
                 {/* <div style={{ marginLeft: "2px" }}>
                     <Card style={{ width: '14rem', height: "300px" }}>
@@ -401,7 +419,7 @@ const ProcessImage = () => {
                                     onChange={(e) => detectionInput(e)}
                                 />
                                 {imageForDetect && (
-                                    <Button onClick={dilation} color="white">
+                                    <Button onClick={matching} color="white" style={{marginTop:"5px"}}>
                                         Detect
                                     </Button>
                                 )}
