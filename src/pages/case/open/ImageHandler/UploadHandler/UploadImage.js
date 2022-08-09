@@ -54,8 +54,7 @@ const UploadImage = (props) => {
         }
     }
     const submithandler = () => {
-        props.imagepassing(images);
-        console.log(images);
+        props.imagepassing(images);  
     };
 
     const displayImage = (images) => {
@@ -76,6 +75,7 @@ const UploadImage = (props) => {
                 name="file"
                 type="file"
                 onChange={fileSelectedHandler}
+                accept="image/*"
             />
              <div className={classes["upload-btn-div"]}>
                 <Button onClick={cancelHandler} style={{ marginRight: "5px" }} outline>
@@ -95,14 +95,14 @@ const UploadImage = (props) => {
 
                     <div>
                         <div className={classes["row"]}>
-                            {images.map((images) => {
+                            {images.map((images,index) => {
                                 return (
                                     <div className={classes["column"]}>
                                         <img
                                             className={classes["demo-img"]}
                                             style={{ height: "99px", width: "99px" }}
                                             src={URL.createObjectURL(images.file)}
-                                            key={"image uniqueid"}
+                                            key={index}
                                             alt=""
                                             onClick={() => displayImage(images.file)}
                                         />
