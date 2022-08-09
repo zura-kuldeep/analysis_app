@@ -1,7 +1,9 @@
 import { useSearchParams } from "react-router-dom";
 import { OpenCvProvider, useOpenCv } from "opencv-react";
 import { useState, useEffect } from "react";
-import imgeee from "../../assets/images/file.png";
+
+import { useNavigate } from "react-router-dom";
+
 import {
     UncontrolledAccordion,
     AccordionBody,
@@ -20,15 +22,17 @@ import {
 import classes from "./ProcessImage.module.css";
 
 const ProcessImage = () => {
-   
+
     const [searchparamss] = useSearchParams();
     const base64Img = JSON.parse(searchparamss.get("base64"));
-    console.log(base64Img);
+    // console.log(base64Img);
 
 
     const [imageforEdit, setImageForEdit] = useState();
     const [imageForDetect, setImageForDetect] = useState();
-    const [imageFiltersArray,setImageFiltersArray] = useState([base64Img]);
+    const [imageFiltersArray, setImageFiltersArray] = useState([base64Img]);
+
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -36,11 +40,12 @@ const ProcessImage = () => {
     }, [searchparamss]);
 
 
-    const savingImageEdits = (x) => {
-        setImageFiltersArray([...imageFiltersArray,x]); 
+    const savingImageEdits = () => {
+        let x = document.getElementById("outputsrc").toDataURL()
+        setImageFiltersArray([...imageFiltersArray, x]);
     }
 
-    const undoRedoImage=(x)=>{
+    const undoRedoImage = (x) => {
         setImageForEdit(x);
         // let c = document.getElementById("outputsrc");
         // var ctx = c.getContext("2d");
@@ -54,7 +59,23 @@ const ProcessImage = () => {
 
     }
 
+    const deleteSaves =(x)=>{
 
+        let allSaves = imageFiltersArray;
+
+        allSaves = allSaves.filter((values)=>{
+            return values !== x;
+        })
+        setImageFiltersArray(allSaves);
+    }
+
+    const saveAllEdits=()=>{
+
+        console.log(imageFiltersArray);
+
+        // navigate("/");
+
+    }
     const greyFilter = () => {
         let cv = window.cv;
         let src = cv.imread("imagesrc");
@@ -65,7 +86,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
 
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
 
     };
@@ -81,7 +101,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
 
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const gaussianBlur = () => {
@@ -94,7 +113,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
 
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
 
@@ -107,7 +125,7 @@ const ProcessImage = () => {
         cv.imshow("outputsrc", dst);
         src.delete();
         dst.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
+
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const bilateralFilter = () => {
@@ -120,7 +138,6 @@ const ProcessImage = () => {
         cv.imshow("outputsrc", dst);
         src.delete();
         dst.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const erosion = () => {
@@ -143,7 +160,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
         M.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
 
@@ -167,7 +183,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
         M.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const morphologicalGradient = () => {
@@ -182,7 +197,6 @@ const ProcessImage = () => {
         src.delete();
         dst.delete();
         M.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const cannyEdgeDetect = () => {
@@ -195,12 +209,11 @@ const ProcessImage = () => {
         cv.imshow("outputsrc", dst);
         src.delete();
         dst.delete();
-        savingImageEdits(document.getElementById("outputsrc").toDataURL());
         setImageForEdit(document.getElementById("outputsrc").toDataURL());
     };
     const detectionInput = (e) => {
         setImageForDetect(e.target.files[0]);
-        console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
     };
     const onLoaded = (cv) => {
         console.log("opencv loaded, cv");
@@ -259,14 +272,20 @@ const ProcessImage = () => {
                     </Card>
 
                 </div> */}
-            <div style={{width:"220px"}}>
-                <div style={{height:"85vh",marginLeft:"10px",overflowY:"scroll"}}>
-                
-                    {imageFiltersArray.map((filterHistory)=>{
-                        return ( <img src={filterHistory} style={{height:"100px",width:"180px",marginLeft:"5px",marginTop:"5px",cursor:"pointer"}} alt=" " onClick={()=>{undoRedoImage(filterHistory)}}/>)
-                    })}
+                <div style={{ width: "220px" }}>
+                    <div style={{ height: "85vh", marginLeft: "10px", overflowY: "scroll" }}>
+
+                        {imageFiltersArray.map((filterHistory,index) => {
+                            return (
+                            <div className={classes["saves-div"]}>
+                            <img key={index+22} src={filterHistory} style={{ height: "100px", width: "180px", marginLeft: "5px", marginTop: "5px", cursor: "pointer" }} alt=" " onClick={() => { undoRedoImage(filterHistory) }} />
+                            <button className={classes["proc-close-btn"]} onClick={()=>deleteSaves(filterHistory)}>x</button>
+                            </div>
+                            )
+                            
+                        })}
+                    </div>
                 </div>
-            </div>
 
                 <div className={classes["editing-div"]}>
                     <div className={classes["buttons-over-img"]}>
@@ -286,14 +305,25 @@ const ProcessImage = () => {
                         >
                             -
                         </Button>
-                        <Button
-                            color="white"
-                            className={classes["img-top-btn"]}
-                            style={{ float: "right" }}
-                            onClick={ResetPic}
-                        >
-                            Reset
-                        </Button>
+                        <div style={{ float: "right" }} >
+                            <Button
+                                color="white"
+                                className={classes["img-top-btn"]}
+
+                                onClick={savingImageEdits}
+                            >
+                                save
+                            </Button>
+                            <Button
+                                color="white"
+                                className={classes["img-top-btn"]}
+
+                                onClick={ResetPic}
+                            >
+                                reset
+                            </Button>
+                        </div>
+
 
                     </div>
                     <canvas id="outputsrc"></canvas>
@@ -383,8 +413,8 @@ const ProcessImage = () => {
                         <Button color="danger" outline style={{ width: "80px" }}>
                             cancel
                         </Button>
-                        <Button color="success" outline style={{ marginLeft: "10px", width: "80px" }}>
-                            save
+                        <Button color="success" outline style={{ marginLeft: "10px", width: "80px" }} onClick={saveAllEdits}>
+                            save all
                         </Button>
                     </div>
                 </div>
