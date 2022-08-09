@@ -1,15 +1,23 @@
 .case-details {
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 55px;
   }
 .case-details div{
   margin:"5px o"
 }
-
-p{
-font-size: 20px;
+.case-details table td {
+ 
 }
 
-h5,p{
+.case-details p,b{
+margin-left: 15px ;
+font-size: 15px;
+font-weight: 400;
+}
+.case-details h5{
+  font-size: 16px;
+  font-weight: 650;
+}
+.case-details h5,p{
   display: inline;
 }
