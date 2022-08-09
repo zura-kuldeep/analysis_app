@@ -66,7 +66,7 @@ const filterCases = (cases, query) => {
     return cases;
   }
   return cases.filter((casef) => {
-    const caseDesc = casef.caseDescription.toLowerCase();
+    const caseDesc = casef.caseName.toLowerCase();
     return caseDesc.includes(query);
   });
 };
