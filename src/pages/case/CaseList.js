@@ -32,7 +32,7 @@ const cases = [
     officerID: "142511i",
     date: "02-04-2002",
     location: "marathalli,Banglore",
-    caseDescription: "man took out his AR in a park",
+    caseDescription: "caught with unlicensed gun at banglore",
     image: [],
     video: [],
   },
@@ -50,7 +50,7 @@ const cases = [
   },
   {
     caseID: "124",
-    caseName: "Intentional Road Accident",
+    caseName: "Road Rage",
     offence: "Road Rage",
     submittingOfficerName: "S.S",
     officerID: "142511i",
@@ -157,7 +157,7 @@ const CaseList = (props) => {
       <div className={classes["main-div"]}>
 
         <div style={{textAlign:"center",marginTop:"-20px"}}>
-        <h5> List Of Cases </h5>
+        <h5 style={{fontSize:"20px"}}> LIST OF CASES </h5>
         </div>
 
         <div className={classes["parent-div"]}>
@@ -166,7 +166,7 @@ const CaseList = (props) => {
             <ul>
               <li>
                 <a href="#" onClick={clickHandler}>
-              Register new Case
+             <h5 style={{fontSize:"14px"}}>Register New Case</h5>
             </a>
               </li>
             </ul>
@@ -195,8 +195,7 @@ const CaseList = (props) => {
                       <div className={classes["case-details"]}>
                         <div className={classes["parent-div"]}>
                         <div className={classes["child-div"]}>
-                          {" "}
-                          {cases.date}{" "}
+                          {cases.date}
                         </div>
                         <div className={classes["child-div"]}>
                           <div className={classes["parent-div"]}>
