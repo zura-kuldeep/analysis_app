@@ -22,7 +22,7 @@ canvas{
 }
 
 .maindiv{
-    margin-top: 100px;
+    margin-top: 70px;
     display:flex;
   }
 .saves-div{
@@ -33,17 +33,20 @@ canvas{
     border-radius: 50%;
     border:none;
     position: absolute;
-    height:30px;
-    width:30px;
+    height:20px;
+    width:20px;
     font-size: 10px;
     cursor: pointer;
     top:0;
     right:0;
     color: black;
-    background-color: transparent;
+    font-weight:bolder;
+    background-color: grey;
+    opacity: 0.5;
 } 
 .proc-close-btn:hover{
   background-color: grey;
+  opacity: 1;
 } 
 
 .filter-buttons{
