@@ -3,6 +3,7 @@ import { createSearchParams,useNavigate } from "react-router-dom";
 // import axios from "axios";
 import backIcon from "../../../assets/images/left-arrow.png"
 
+import {UncontrolledTooltip} from "reactstrap";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -56,7 +57,13 @@ const RegCase = () => {
   return (
     <div className={classes["contain"]}>
       <div className={classes.containImg}>
-        <img src={backIcon} alt="" onClick={()=>{navigate("/")}}/>
+        <img id="RegBackButton" style={{cursor:"pointer"}} src={backIcon} alt="" onClick={()=>{navigate("/")}}/>
+        <UncontrolledTooltip
+        placement="bottom"
+        target="RegBackButton" 
+      >
+        Back
+      </UncontrolledTooltip>
       </div>
       <div className={classes.register}>
       <Typography variant="h6" gutterBottom>
