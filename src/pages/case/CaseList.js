@@ -4,14 +4,17 @@ import { useNavigate, createSearchParams } from "react-router-dom";
 import SearchBar from "../../components/searchbar/SearchBar";
 import NewSearchBar from "../../components/searchbar/NewSearchBar";
 
-import { ListGroup, ListGroupItem, Button, Container } from "reactstrap";
+import { ListGroup, ListGroupItem, Button, Container,UncontrolledTooltip } from "reactstrap";
 import classes from "./CaseList.module.css";
 
+import addFileIcon from "../../assets/images/add-file-24px.png";
+import addIcon from "../../assets/images/add-create-cross-new-plus-icon-163222.png"
 import imgIcon from "../../assets/images/image-gallery.png";
 import vidIcon from "../../assets/images/video-files.png";
 import caseIcon from "../../assets/images/case.png";
 
 const cases = [
+ 
   {
     caseID: "121",
     caseName: "Drunk Man Driving",
@@ -156,12 +159,12 @@ const CaseList = (props) => {
 
       <div className={classes["main-div"]}>
 
-        <div style={{textAlign:"center",marginTop:"-20px"}}>
-        <h5 style={{fontSize:"20px"}}> LIST OF CASES </h5>
+        <div style={{ textAlign: "center", marginTop: "-20px" }}>
+          <h5 style={{ fontSize: "20px" }}> LIST OF CASES </h5>
         </div>
 
-        <div className={classes["parent-div"]}>
-          <div className={classes["child-div"]}>
+
+        {/* <div className={classes["child-div"]}>
             <div className={classes["register-div"]}>
             <ul>
               <li>
@@ -172,52 +175,73 @@ const CaseList = (props) => {
             </ul>
               
             </div>            
-          </div>
+          </div> */}
 
-          <div className={classes["child-div"]}>
-            <div className={classes["search-bar-div"]}>
-              <NewSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            </div>
-            <div className={classes["list-div"]}>
-              <ul>
-                {filteredCases.map((cases) => (
-                  <li
-                    key={cases.caseID}
-                    onClick={() => {
-                      casefileHandler(cases);
-                    }}
-                  >
-                    <div>
-                      <div className={classes["case-title"]}>
-                      <img src={caseIcon} alt="" style={{height:"20px",marginRight:"5px"}}/>
-                        {cases.caseName}
+        {/* <div className={classes["reg-contain"]}>          
+            <a className={classes["for-reg"]} href="#">Register New Case</a>
+           </div> */}
+
+        <div className={classes["addcase-div"]}>
+          <img id="RegisterNewCase" src={addIcon} alt="Register New Case" onClick={clickHandler} style={{ height: "40px", width: "40px", float: "right", margin: "5px 50px 10px 0", cursor: "pointer" }} />
+          <UncontrolledTooltip
+        placement="right"
+        target="RegisterNewCase" 
+      >
+        Register New Case
+      </UncontrolledTooltip>
+        </div>
+
+
+        <div className={classes["search-bar-div"]}>
+          <NewSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </div>
+        <div className={classes["list-div"]}>
+          <ul>
+            {filteredCases.map((cases) => (
+              <li
+                key={cases.caseID}
+                onClick={() => {
+                  casefileHandler(cases);
+                }}
+              >
+                <div>
+                  <div className={classes["case-title"]}>
+                    <img src={caseIcon} alt="" style={{ height: "20px", marginRight: "5px" }} />
+                    {cases.caseName}
+                  </div>
+                  <div className={classes["case-details"]}>
+                    <div className={classes["parent-div"]}>
+                      <div className={classes["child-div"]}>
+                        {cases.date}
                       </div>
-                      <div className={classes["case-details"]}>
+                      <div className={classes["child-div"]}>
                         <div className={classes["parent-div"]}>
-                        <div className={classes["child-div"]}>
-                          {cases.date}
-                        </div>
-                        <div className={classes["child-div"]}>
-                          <div className={classes["parent-div"]}>
-                            <div className={classes["child-div"]}>
-                              <img src={imgIcon} alt="" style={{height:"15px",marginRight:"5px"}}/>
-                              {cases.image.length}
-                            </div>
-                            <div className={classes["child-div"]}>
-                               <img src={vidIcon} alt="" style={{height:"15px",marginRight:"5px"}}/>
-                              {cases.video.length}
-                            </div>
+                          <div className={classes["child-div"]}>
+                            <img src={imgIcon} alt="" style={{ height: "15px", marginRight: "5px" }} />
+                            {cases.image.length}
+                          </div>
+                          <div className={classes["child-div"]}>
+                            <img src={vidIcon} alt="" style={{ height: "15px", marginRight: "5px" }} />
+                            {cases.video.length}
                           </div>
                         </div>
-                      </div></div>
-                      
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                      </div>
+                    </div></div>
+
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
+
+
+{/*         
+        <div className={classes["addcase-div"]}>
+          <img src={addIcon} style={{ height: "40px", width: "40px", float: "right", margin: "5px 50px 10px 0", cursor: "pointer" }} />
+        </div> */}
+
+
+
       </div>
     </>
   );
