@@ -45,7 +45,7 @@
 }
 
 .nav__cont:hover {
-  width: 160px;
+  width: 135px;
 }
 
 .nav {
@@ -60,15 +60,15 @@
 .nav__items a {
   position: relative;
   display: block;
-  top: -38px;
-  padding-left: 25px;
+  top: -33px;
+  padding-left: 3px;
   padding-right: 10px;
   transition: all 0.3s ease;
   margin-left: 35px;
   text-decoration: none;
   color: white;
-  font-weight: 100;
-  font-size: 1.2em;
+  font-weight: 80;
+  font-size: 1em;
 }
 
 .nav__items a:after {
@@ -81,7 +81,7 @@
   border-radius: 2px;
   background: radial-gradient(
     circle at 94.02% 88.03%,
-    #54a4ff,
+    #616569,
     transparent 100%
   );
   opacity: 0;
@@ -94,7 +94,7 @@
 }
 
 .nav__items img {
-  height: 40px;
+  width: 35px;
   margin-left: -20px;
 }
 
