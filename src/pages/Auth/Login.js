@@ -33,7 +33,7 @@ const Login = ({ setToken }) => {
   return (
     <Container className={classes.maindiv}>
       <Container>
-        <img style={{ marginLeft: "80px" }} src={logo} alt="Media Enhancer" />
+        <img src={logo} alt="Media Enhancer" />
       </Container>
       <div className={classes["login-wrapper"]}>
         <Container>
