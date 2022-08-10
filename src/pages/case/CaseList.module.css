@@ -1,5 +1,6 @@
 .main-div{
   margin-top: 100px;
+  padding:0 200px;
 }
 
 .parent-div{
@@ -14,9 +15,19 @@
   margin-top: 30px;
   
 }
-a{
+.reg-contain{
+  width:inherit;
+  
+}
+.addcase-div{
+  width:inherit;
+}
+.for-reg{
   color:black;
-  text-decoration: none;
+  /* text-decoration: none; */
+  float:right;
+  margin-right:30px;
+  margin-bottom: 10px;
 }
 
 .case-title{
@@ -42,7 +53,15 @@ a{
 }
 .list-div{
     margin-left:50px;
+    overflow: scroll;
+    max-height: 350px;
+    -ms-overflow-style: none;
+    scrollbar-width:none;
   }
+  .list-div::-webkit-scrollbar{
+    display:none;
+  }
+
 
 .list-div ul{
     width:900px;
