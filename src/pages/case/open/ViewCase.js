@@ -58,7 +58,7 @@ const ViewCase = () => {
   };
 
   const updatingImage = (e) => {
-    console.log(e);
+    // console.log(e);
     cases[0].image.push(...e);
     localStorage.setItem("updatedcases", JSON.stringify(cases));
   };
@@ -87,7 +87,6 @@ const ViewCase = () => {
       </div> */}
       {/* replace here */}
       <div>
-
         <nav className={classes["nav__cont"]}>
           <ul className={classes["nav"]}>
             <li className={classes["nav__items"]} style={{ marginTop: '125px' }}>
@@ -111,10 +110,10 @@ const ViewCase = () => {
 
       <div>
         <div className={classes.rightside}>
-          <a style={{textDecoration: "underline"}} onClick={navigateToCases}>
-            cases/
+          <a style={{textDecoration: "underline",fontSize:"15px"}} onClick={navigateToCases}>
+            cases 
           </a>
-          <span>{cases[0].caseID}</span>
+          <span>&nbsp;/&nbsp;{cases[0].caseID}</span>
         </div>
         <div style={{borderBottom:"1px dashed"}}></div>
         {caseView && <CaseInfo cases={cases} />}
