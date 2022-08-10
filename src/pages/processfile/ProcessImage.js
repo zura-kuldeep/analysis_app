@@ -42,6 +42,9 @@ const ProcessImage = () => {
 
     const savingImageEdits = () => {
         let x = document.getElementById("outputsrc").toDataURL()
+        if(imageFiltersArray.includes(x)){
+            return ;
+        }
         setImageFiltersArray([...imageFiltersArray, x]);
     }
 
