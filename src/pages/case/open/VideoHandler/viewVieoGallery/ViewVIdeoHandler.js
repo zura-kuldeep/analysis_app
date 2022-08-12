@@ -64,7 +64,7 @@ const ViewVideoHandler = (props) => {
         </div>
         <hr />
         <div>
-          {displayVideo && <DisplayVIdeo video={video} />}
+          {displayVideo && <DisplayVIdeo video={video} style={props.style}/>}
           {uploadVideo && (
             <UploadVideo
               videoPassing={videoPassing}
