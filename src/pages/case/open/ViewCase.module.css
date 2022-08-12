@@ -48,6 +48,13 @@
   width: 135px;
 }
 
+.movable-div {
+   margin-left:135px;
+}
+.movable-div-zero{
+  margin-left:0;
+}
+
 .nav {
   list-style-type: none;
   /* color: white; */
@@ -100,7 +107,7 @@
 
 /* case info div */
 .rightside {
-  margin-left: 100px;
+  
   margin-top: 80px;
   display: flex;
 }
