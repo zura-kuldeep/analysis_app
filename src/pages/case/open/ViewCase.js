@@ -18,6 +18,10 @@ const ViewCase = () => {
   const [caseView, setCaseView] = useState(true);
   const [imageView, setImageView] = useState(false);
   const [videoView, setVideoView] = useState(false);
+  const [moveCss,setmoveCss] = useState();
+  const [marginCss,setMarginCss] = useState({marginLeft:"90px",fontSize:"28px",padding:"0px 10px"});
+  const [tempcss,setTempcss] = useState({marginLeft:"100px"})
+  
 
   const [searchparamss] = useSearchParams();
 
@@ -70,6 +74,20 @@ const ViewCase = () => {
     navigate("/");
   };
 
+  const moveRight=()=>{
+
+    setmoveCss(classes["movable-div"]);
+    setMarginCss({marginLeft:"0px",fontSize:"28px",padding:"0px 10px"});
+    setTempcss({marginLeft:"2px"});
+  }
+
+  const moveBack=()=>{
+
+    setmoveCss(classes["movable-div-zero"])
+    setMarginCss({marginLeft:"90px",fontSize:"28px",padding:"0px 10px"});
+    setTempcss({marginLeft:"100px"});
+  }
+
   return (
     <>
       {/* <div className={classes.sidenav}>
@@ -87,7 +105,7 @@ const ViewCase = () => {
       </div> */}
       {/* replace here */}
       <div>
-        <nav className={classes["nav__cont"]}>
+        <nav className={classes["nav__cont"]} onMouseOver={moveRight} onMouseOut={moveBack}>
           <ul className={classes["nav"]}>
             <li className={classes["nav__items"]} style={{ marginTop: '125px' }}>
               <img src={infopic} onClick={caseInfoHandler} alt=""/>
@@ -108,29 +126,32 @@ const ViewCase = () => {
         </nav>
       </div>
 
-      <div>
-        <div className={classes.rightside}>
+      <div className={moveCss}>
+        <div className={classes.rightside} style={tempcss}>
           <a style={{textDecoration: "underline",fontSize:"15px"}} onClick={navigateToCases}>
             cases 
           </a>
           <span>&nbsp;/&nbsp;{cases[0].caseID}</span>
         </div>
         <div style={{borderBottom:"1px dashed"}}></div>
-        {caseView && <CaseInfo cases={cases} />}
+        {caseView && <CaseInfo cases={cases} style={marginCss} />}
         {imageView && (
           <ViewImages
             cases={cases}
             imagepass={updatingImage}
-            className={classes[" slide-load "]}
+            style={marginCss}
           />
         )}
         {videoView && (
           <ViewVideoHandler
             cases={cases}
             videoPassing={updatingVideo}
-            className={classes[" slide-load "]}
+            style={marginCss}
+            
           />
         )}
+
+        
       </div>
     </>
   );
