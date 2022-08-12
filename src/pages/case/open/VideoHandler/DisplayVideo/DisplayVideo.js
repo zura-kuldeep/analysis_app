@@ -52,6 +52,7 @@ const DisplayVIdeo = (props) => {
           })}</div>
         {!display && (
           <PreViewVideo
+            style={style.props}
             vidforProc={processVideo}
             displayvidsBack={displayvidsBack}
           />
