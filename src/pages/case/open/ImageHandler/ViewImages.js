@@ -34,8 +34,8 @@ const ViewImages = (props) => {
     setDisableUpload(true);
   }
   return (
-    <CardRight>
-      <div>
+    <>
+      <div style={props.style}>
         <h3
           style={{
             textDecoration: "underline",
@@ -78,7 +78,7 @@ const ViewImages = (props) => {
           />
         )}
       </div>
-    </CardRight>
+    </>
   );
 };
 export default ViewImages;
