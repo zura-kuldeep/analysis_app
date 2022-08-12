@@ -1,6 +1,6 @@
 .main-div{
   margin-top: 100px;
-  padding:0 200px;
+  /* padding:0 200px; */
 }
 
 .parent-div{
@@ -20,7 +20,7 @@
   
 }
 .addcase-div{
-  width:inherit;
+  width:900px;
 }
 .for-reg{
   color:black;
