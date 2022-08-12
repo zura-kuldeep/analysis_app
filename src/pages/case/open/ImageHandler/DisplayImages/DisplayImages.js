@@ -27,7 +27,7 @@ const DisplayImages = (props) => {
   };
 
   return (
-    <>
+    <div style={props.style}>
       <div style={{ margin: "20px 0 0 20px" }}>
         <div className={classes["container-all"]}>
         {display &&
@@ -57,7 +57,7 @@ const DisplayImages = (props) => {
           <PreView imgforProc={processImg} displayImgBack={displayImgBack} />
         )}
       </div>
-    </>
+    </div>
   );
 };
 export default DisplayImages;
