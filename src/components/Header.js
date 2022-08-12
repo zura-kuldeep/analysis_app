@@ -41,7 +41,7 @@ const Header = () => {
        <div style={{position:"absolute",right:"0",display:"flex",marginRight:"3%"}}>
           
         <div className={classes["logout-container"]}> 
-        <button style={{background:"transparent",borderRadius:"50%"}} onClick={options}>
+        <button style={{background:"transparent",borderRadius:"50%",borderColor:"transparent"}} onClick={options}>
         <img style={{width:"25px",marginTop:"20px",cursor:"pointer"}} alt="" src={profile}/>
         </button>
         {logoutDiv && <div style={{height:"50px",width:"140px",position:"absolute",background:"black",padding:"15px",left:"-15px"}}>
