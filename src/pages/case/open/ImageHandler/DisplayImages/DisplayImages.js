@@ -54,7 +54,7 @@ const DisplayImages = (props) => {
           })}
           </div>
         {!display && (
-          <PreView imgforProc={processImg} displayImgBack={displayImgBack} />
+          <PreView style={props.style} imgforProc={processImg} displayImgBack={displayImgBack} />
         )}
       </div>
     </div>
