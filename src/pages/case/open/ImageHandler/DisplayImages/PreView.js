@@ -20,7 +20,7 @@ const PreView = (props) => {
 
   }
   return (
-    <>
+    <div style={props.style}>
       <div style={{ display: "inline-flex" }}>
         <img
           alt=""
@@ -46,7 +46,7 @@ const PreView = (props) => {
       </div>
 
 
-    </>
+    </div>
   );
 };
 export default PreView;
