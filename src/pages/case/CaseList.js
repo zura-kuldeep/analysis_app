@@ -117,7 +117,7 @@ const CaseList = (props) => {
   }
 
   return (
-    <>
+    <Container>
       {/* <Container style={{ marginTop: "100px" }}> */}
       {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
       {/* <ul>
@@ -182,7 +182,7 @@ const CaseList = (props) => {
            </div> */}
 
         <div className={classes["addcase-div"]}>
-          <img id="RegisterNewCase" src={addIcon} alt="Register New Case" onClick={clickHandler} style={{ height: "40px", width: "40px", float: "right", margin: "5px 50px 10px 0", cursor: "pointer" }} />
+          <img id="RegisterNewCase" src={addIcon} alt="Register New Case" onClick={clickHandler} style={{ height: "40px", width: "40px", float: "right", margin: "5px 0px 10px 0", cursor: "pointer" }} />
           <UncontrolledTooltip
         placement="right"
         target="RegisterNewCase" 
@@ -243,7 +243,7 @@ const CaseList = (props) => {
 
 
       </div>
-    </>
+    </Container>
   );
 };
 export default CaseList;
