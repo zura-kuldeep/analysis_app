@@ -69,10 +69,11 @@ const ViewImages = (props) => {
 
       <div>
         {displayImages && (
-          <DisplayImages images={images} ondisableuploadButton={ondisableuploadButton} onUploadEnableButton={onUploadEnableButton} />
+          <DisplayImages style={props.style} images={images} ondisableuploadButton={ondisableuploadButton} onUploadEnableButton={onUploadEnableButton} />
         )}
         {uploadImg && (
           <UploadImage
+            style={props.style}
             imagepassing={imagepassing}
             cancelRequest={uploadCancel}
           />
