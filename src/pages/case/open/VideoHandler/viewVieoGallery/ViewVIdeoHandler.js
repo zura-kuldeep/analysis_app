@@ -31,8 +31,8 @@ const ViewVideoHandler = (props) => {
     setUploadVideo(false);
   };
   return (
-    <CardRight>
-      <div>
+    <>
+      <div style={props.style}>
         <div>
           <h3
             style={{
@@ -73,7 +73,7 @@ const ViewVideoHandler = (props) => {
           )}
         </div>
       </div>
-    </CardRight>
+    </>
   );
 };
 export default ViewVideoHandler;
