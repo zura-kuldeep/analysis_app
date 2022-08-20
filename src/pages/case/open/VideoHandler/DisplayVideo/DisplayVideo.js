@@ -22,7 +22,7 @@ const DisplayVIdeo = (props) => {
     setDisplay(true);
   };
   return (
-    <div style={props.style}>
+    <>
       <div style={{ margin: "20px 0 0 20px" }}>
         <div className={classes["container-all"]}>
         {display &&
@@ -52,13 +52,12 @@ const DisplayVIdeo = (props) => {
           })}</div>
         {!display && (
           <PreViewVideo
-            style={props.style}
             vidforProc={processVideo}
             displayvidsBack={displayvidsBack}
           />
         )}
       </div>
-    </div>
+    </>
   );
 };
 export default DisplayVIdeo;
