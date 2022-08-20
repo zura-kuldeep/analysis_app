@@ -20,7 +20,7 @@ const PreView = (props) => {
 
   }
   return (
-    <div style={props.style}>
+    <>
       <div style={{ display: "inline-flex" }}>
         <img
           alt=""
@@ -34,9 +34,9 @@ const PreView = (props) => {
         <div style={{ borderLeft: "1px solid black", marginLeft: "5px" }}></div>
         <div style={{ marginLeft: "20px", backgroundColor: "#ebeded", borderRadius: "10px",height:"300px", width:"550px" }}>
           <div style={{margin:"20px 0 0 20px",padding:"5px"}}>
-            <p style={{fontSize:"15px"}}><b style={{fontSize:"20px"}}>File Name :</b> {(props.imgforProc.file.name).split(".")[0]}</p><br />
-            <p style={{fontSize:"15px"}}><b style={{fontSize:"20px"}}>File Type :</b> {props.imgforProc.file.type}</p><br></br>
-            <p style={{fontSize:"15px"}}><b style={{fontSize:"20px"}}>File Size :</b> {props.imgforProc.file.size}kb</p>
+            <p><b>File Name :</b> {(props.imgforProc.file.name).split(".")[0]}</p><br />
+            <p><b>File Type :</b> {props.imgforProc.file.type}</p><br></br>
+            <p><b>File Size :</b> {props.imgforProc.file.size}kb</p>
           </div>
           <div style={{marginTop:"50px",display:"flex",justifyContent:"center",alignItems:"center"}}>
             <Button onClick={displayImgBack} outline style={{ marginRight: "10px", marginLeft: "5px",width:"150px" }}>Back</Button>
@@ -46,7 +46,7 @@ const PreView = (props) => {
       </div>
 
 
-    </div>
+    </>
   );
 };
 export default PreView;
