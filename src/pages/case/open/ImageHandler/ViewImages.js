@@ -34,8 +34,8 @@ const ViewImages = (props) => {
     setDisableUpload(true);
   }
   return (
-    <>
-      <div style={props.style}>
+    <CardRight>
+      <div>
         <h3
           style={{
             textDecoration: "underline",
@@ -69,17 +69,16 @@ const ViewImages = (props) => {
 
       <div>
         {displayImages && (
-          <DisplayImages style={props.style} images={images} ondisableuploadButton={ondisableuploadButton} onUploadEnableButton={onUploadEnableButton} />
+          <DisplayImages images={images} ondisableuploadButton={ondisableuploadButton} onUploadEnableButton={onUploadEnableButton} />
         )}
         {uploadImg && (
           <UploadImage
-            style={props.style}
             imagepassing={imagepassing}
             cancelRequest={uploadCancel}
           />
         )}
       </div>
-    </>
+    </CardRight>
   );
 };
 export default ViewImages;
