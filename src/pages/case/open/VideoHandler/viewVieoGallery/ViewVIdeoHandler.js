@@ -31,8 +31,8 @@ const ViewVideoHandler = (props) => {
     setUploadVideo(false);
   };
   return (
-    <>
-      <div style={props.style}>
+    <CardRight>
+      <div>
         <div>
           <h3
             style={{
@@ -64,7 +64,7 @@ const ViewVideoHandler = (props) => {
         </div>
         <hr />
         <div>
-          {displayVideo && <DisplayVIdeo video={video} style={props.style}/>}
+          {displayVideo && <DisplayVIdeo video={video} />}
           {uploadVideo && (
             <UploadVideo
               videoPassing={videoPassing}
@@ -73,7 +73,7 @@ const ViewVideoHandler = (props) => {
           )}
         </div>
       </div>
-    </>
+    </CardRight>
   );
 };
 export default ViewVideoHandler;
