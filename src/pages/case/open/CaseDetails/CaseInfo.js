@@ -6,8 +6,8 @@ const CaseInfo = (props) => {
   let cases = props.cases;
 
   return (
-    
-      <div style={props.style}>
+    <CardRight>
+      <div>
         <div>
           <h3
             style={{
@@ -110,7 +110,7 @@ const CaseInfo = (props) => {
           </table>
         </div>
       </div>
-    
+    </CardRight>
   );
 };
 
