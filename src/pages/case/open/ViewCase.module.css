@@ -39,7 +39,7 @@
   z-index: 100;
   background-color: #202020;
   overflow: hidden;
-  transition: width 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 4px 7px 10px rgba(0, 0, 0, 0.4);
 }
@@ -47,12 +47,8 @@
 .nav__cont:hover {
   width: 135px;
 }
-
-.movable-div {
-   margin-left:135px;
-}
-.movable-div-zero{
-  margin-left:0;
+.nav__cont:hover+div{
+  margin-left:75px;
 }
 
 .nav {
@@ -107,7 +103,7 @@
 
 /* case info div */
 .rightside {
-  
+  margin-left: 100px;
   margin-top: 80px;
   display: flex;
 }
