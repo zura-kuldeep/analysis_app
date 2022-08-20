@@ -117,7 +117,7 @@ const CaseList = (props) => {
   }
 
   return (
-    <Container>
+    <div className={classes["centering"]}>
       {/* <Container style={{ marginTop: "100px" }}> */}
       {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
       {/* <ul>
@@ -243,7 +243,7 @@ const CaseList = (props) => {
 
 
       </div>
-    </Container>
+    </div>
   );
 };
 export default CaseList;
