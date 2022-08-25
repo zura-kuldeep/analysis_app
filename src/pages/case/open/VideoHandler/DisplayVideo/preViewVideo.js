@@ -18,12 +18,14 @@ const PreViewVideo = (props) => {
           }}
           controls
         />
+
         <div style={{ borderLeft: "1px solid black", marginLeft: "5px" }}></div>
+        <div style={{ marginLeft: "20px", backgroundColor: "#ebeded", borderRadius: "10px",height:"300px", width:"550px" }}>
         <div style={{ marginLeft: "20px" }}>
-          <p>File Name : {props.vidforProc.name}</p>
-          <p>File Type : {props.vidforProc.type}</p>
-          <p>File Size : {props.vidforProc.size}</p>
-          <p>Uploaded Date : {props.vidforProc.lastModified}</p>
+          <p>File Name : {props.vidforProc.name}</p><br/>
+          <p>File Type : {props.vidforProc.type}</p><br/>
+          <p>File Size : {Math.floor(((props.vidforProc.size)/1024)/1024)}MB</p><br />
+        </div>
         </div>
       </div>
 
