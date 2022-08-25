@@ -36,7 +36,8 @@ const PreView = (props) => {
           <div style={{margin:"20px 0 0 20px",padding:"5px"}}>
             <p><b>File Name :</b> {(props.imgforProc.file.name).split(".")[0]}</p><br />
             <p><b>File Type :</b> {props.imgforProc.file.type}</p><br></br>
-            <p><b>File Size :</b> {props.imgforProc.file.size}kb</p>
+            <p><b>File Size :</b> {Math.floor(((props.imgforProc.file.size)/1024)/1024)}MB</p>
+            
           </div>
           <div style={{marginTop:"50px",display:"flex",justifyContent:"center",alignItems:"center"}}>
             <Button onClick={displayImgBack} outline style={{ marginRight: "10px", marginLeft: "5px",width:"150px" }}>Back</Button>
